@@ -3,149 +3,133 @@
   src: url(./fonts/SF-Pro-Display-Light.otf);
   font-weight: 300;
 }
-
 @font-face {
   font-family: SF Pro Display;
   src: url(./fonts/SF-Pro-Display-Regular.otf);
   font-weight: 400;
 }
-
 @font-face {
   font-family: SF Pro Display;
   src: url(./fonts/SF-Pro-Display-Medium.otf);
   font-weight: 500;
 }
-
 @font-face {
   font-family: SF Pro Display;
   src: url(./fonts/SF-Pro-Display-Bold.otf);
   font-weight: 700;
 }
-
 * {
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
+  box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
   outline: 0;
+  font-family: "SF Pro Display", Arial, Helvetica, sans-serif;
 }
 
 body {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: horizontal;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: row;
-          flex-direction: row;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
   min-width: 360px;
-  background-color: #F6D8D8;
-  font-family: 'SF Pro Display', Arial, Helvetica, sans-serif;
+  background-color: #f6d8d8;
   line-height: 1.2;
 }
-
 body #otp-snackbar {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
 }
-
 body form {
-  display: -webkit-box;
-  display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
-  -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
-  -webkit-box-align: center;
-      -ms-flex-align: center;
-          align-items: center;
-  -webkit-box-pack: center;
-      -ms-flex-pack: center;
-          justify-content: center;
-  background-color: #FFF;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
   height: 460px;
   width: 460px;
   padding: 30px;
   border-radius: 50px;
-  -webkit-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
-          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 }
-
 body form .form-title {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
   font-size: 36px;
   font-weight: bold;
 }
-
 body form .form-subtitle {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
   font-size: 20px;
   font-weight: 300;
 }
-
 body form .form-separator {
   width: 100%;
-  margin: 18px 0 30px;
-  border: 1px solid rgba(34, 34, 34, 0.36);
+  margin: 12px 0 30px;
+  border-top: 2px solid rgba(34, 34, 34, 0.36);
 }
-
 body form label {
-  -ms-flex-item-align: start;
-      align-self: flex-start;
+  align-self: flex-start;
 }
-
-body form input {
+body form .input-container {
+  width: 100%;
+  position: relative;
+}
+body form .input-container input {
   width: 100%;
   height: 50px;
   padding: 0 16px;
-  border: 1px solid #C3D2EB;
+  border: 1px solid #c3d2eb;
   border-radius: 12px;
-  color: #8B8787;
-  background-color: #FDFDFF;
+  background-color: #fdfdff;
+  color: #8b8787;
   font-family: "SF Pro Display";
   font-size: 18px;
 }
-
-body form input::-webkit-outer-spin-button,
-body form input::-webkit-inner-spin-button {
+body form .input-container input::focus {
+  border-color: #5138ed;
+  font-size: 20px;
+}
+body form .input-container input::-webkit-outer-spin-button,
+body form .input-container input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
-
-body form input:focus {
-  background-color: #FFF;
-  color: #000;
-  border-color: #5138ED;
+body form .input-container p {
+  position: absolute;
+  padding: 0 16px;
+  top: 50%;
+  left: 0;
+  transform: translateY(-50%);
+  transition: all 0.3s ease-out;
+  color: #8b8787;
+  font-family: "SF Pro Display";
+  font-size: 18px;
+  pointer-events: none;
+}
+body form .input-container input:focus + p {
+  top: -2.3px;
+  left: 16px;
+  padding: 0 4px;
+  background-color: #fff;
+  color: #3521b5;
+  font-size: 14px;
+}
+body .otp-label {
+  align-self: flex-end;
+  margin-top: 8px;
+  background-color: #fff;
+  font-size: 18px;
+  text-decoration: underline;
+  text-underline-offset: 2px;
+}
+body .token-submit {
+  padding: 10px 15px;
+  border-radius: 10px;
+  background-color: #5138ed;
+  color: #fff;
+  font-family: "SF Pro Display";
+  font-weight: 300;
   font-size: 20px;
 }
-
-body form input:focus::-webkit-input-placeholder {
-  color: #FFF;
-}
-
-body form input:focus:-ms-input-placeholder {
-  color: #FFF;
-}
-
-body form input:focus::-ms-input-placeholder {
-  color: #FFF;
-}
-
-body form input:focus::placeholder {
-  color: #FFF;
-}
-
 body #error-msg-container {
   position: absolute;
-}
+}/*# sourceMappingURL=style.css.map */
