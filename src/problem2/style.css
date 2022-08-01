@@ -3,23 +3,28 @@
   src: url(./fonts/SF-Pro-Display-Light.otf);
   font-weight: 300;
 }
+
 @font-face {
   font-family: SF Pro Display;
   src: url(./fonts/SF-Pro-Display-Regular.otf);
   font-weight: 400;
 }
+
 @font-face {
   font-family: SF Pro Display;
   src: url(./fonts/SF-Pro-Display-Medium.otf);
   font-weight: 500;
 }
+
 @font-face {
   font-family: SF Pro Display;
   src: url(./fonts/SF-Pro-Display-Bold.otf);
   font-weight: 700;
 }
+
 * {
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   margin: 0;
   padding: 0;
   border: 0;
@@ -28,52 +33,104 @@
 }
 
 body {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: row;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   min-width: 360px;
   background-color: #f6d8d8;
   line-height: 1.2;
 }
+
 body #otp-snackbar {
-  display: flex;
+  position: absolute;
+  display: none;
+  padding: 20px 30px;
+  border-radius: 10px;
+  background-color: white;
+  font-size: 26px;
+  top: 0;
+  -webkit-transform: translateY(-100%);
+          transform: translateY(-100%);
 }
+
+@-webkit-keyframes slideInFromAbove {
+  to {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
+@keyframes slideInFromAbove {
+  to {
+    -webkit-transform: translateY(20px);
+            transform: translateY(20px);
+  }
+}
+
 body form {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
   background-color: #fff;
   height: 440px;
   width: 460px;
   padding: 30px;
   border-radius: 50px;
-  box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+  -webkit-box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
+          box-shadow: 4px 4px 8px rgba(0, 0, 0, 0.25);
 }
+
 body form .form-title {
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   font-size: 36px;
   font-weight: bold;
 }
+
 body form .form-subtitle {
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
   font-size: 20px;
   font-weight: 300;
 }
+
 body form .form-separator {
   width: 100%;
   margin: 12px 0 6px;
   border-top: 2px solid rgba(34, 34, 34, 0.36);
 }
+
 body form label {
-  align-self: flex-start;
+  -ms-flex-item-align: start;
+      align-self: flex-start;
 }
+
 body form .input-container {
   width: 100%;
   position: relative;
   margin-top: 18px;
 }
+
 body form .input-container input {
   width: 100%;
   height: 50px;
@@ -81,58 +138,54 @@ body form .input-container input {
   border: 1px solid #c3d2eb;
   border-radius: 12px;
   background-color: #fdfdff;
+  -webkit-transition: all 0.5s ease-in-out;
   transition: all 0.5s ease-in-out;
   color: #000;
   font-family: "SF Pro Display";
   font-size: 18px;
 }
+
 body form .input-container input:focus {
   border: 1px solid #5138ed;
-  font-size: 20px;
 }
+
 body form .input-container input::-webkit-outer-spin-button,
 body form .input-container input::-webkit-inner-spin-button {
   -webkit-appearance: none;
   margin: 0;
 }
+
 body form .input-container p {
   position: absolute;
   padding: 0 16px;
   top: 50%;
   left: 0;
-  transform: translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
+  -webkit-transition: all 0.3s ease-out;
   transition: all 0.3s ease-out;
+  border-radius: 100%;
   color: #bfb7b7;
   font-family: "SF Pro Display";
   font-size: 18px;
   pointer-events: none;
 }
-body form .input-container input:not(:-moz-placeholder-shown) + p {
-  top: -2px;
-  left: 16px;
-  padding: 0 2px;
-  background-color: #fff;
-  color: #000;
-  font-size: 14px;
+
+body form .input-container input:not(:placeholder-shown) {
+  background-color: #eff3ff6f;
 }
-body form .input-container input:not(:-ms-input-placeholder) + p {
-  top: -2px;
-  left: 16px;
-  padding: 0 2px;
-  background-color: #fff;
-  color: #000;
-  font-size: 14px;
-}
+
 body form .input-container input:not(:placeholder-shown) + p {
-  top: -2px;
+  top: -1px;
   left: 16px;
   padding: 0 2px;
   background-color: #fff;
   color: #000;
   font-size: 14px;
 }
+
 body form .input-container input:focus + p {
-  top: -2px;
+  top: -1px;
   left: 16px;
   padding: 0 2px;
   border-color: #5138ed;
@@ -140,14 +193,18 @@ body form .input-container input:focus + p {
   color: #3521b5;
   font-size: 14px;
 }
+
 body #otp-label {
-  align-self: flex-end;
+  -ms-flex-item-align: end;
+      align-self: flex-end;
   margin-top: 8px;
   background-color: #fff;
+  cursor: pointer;
   font-size: 18px;
   text-decoration: underline;
   text-underline-offset: 2px;
 }
+
 body #token-submit {
   padding: 12px 17px;
   margin-top: 12px;
@@ -158,6 +215,23 @@ body #token-submit {
   font-weight: 300;
   font-size: 20px;
 }
+
 body #error-msg-container {
   position: absolute;
-}/*# sourceMappingURL=style.css.map */
+  bottom: 30px;
+  padding: 13px 25px;
+  border-radius: 50px;
+  background-color: white;
+  color: #A63446;
+  font-size: 20px;
+  font-weight: 500;
+  -webkit-box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+          box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+  opacity: 0;
+  -webkit-transition: opacity 300ms ease-out;
+  transition: opacity 300ms ease-out;
+}
+
+body #error-msg-container .fa-circle-xmark {
+  margin-right: 12px;
+}

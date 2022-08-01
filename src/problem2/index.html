@@ -5,36 +5,36 @@
 
     <!-- You may add more stuff here -->
     <link href="style.css" rel="stylesheet" />
+    <script
+      src="https://kit.fontawesome.com/51ffbc52bc.js"
+      crossorigin="anonymous"
+    ></script>
   </head>
 
   <body>
     <div id="otp-snackbar"></div>
     <!-- You may reorganise the whole HTML, as long as your form achieves the same effect. -->
-    <form onsubmit="return !1">
+    <form>
       <h3 class="form-title">Fancy Form</h3>
       <p class="form-subtitle">Send ETH with the form below.</p>
       <div class="form-separator"></div>
 
-      <!-- <label for="input-address">ETH Address</label> -->
       <div class="input-container">
-        <input id="input-address" placeholder=" " />
+        <input name="address" type="text" placeholder=" " />
         <p>ETH Address</p>
       </div>
 
-      <!-- <label for="input-amount">Amount to send</label> -->
       <div class="input-container">
-        <input type="number" id="input-amount" placeholder=" " />
+        <input name="amount" type="number" placeholder=" " step="any" />
         <p>Amount to send</p>
       </div>
 
-      <!-- <label for="input-otp">OTP Authentication</label> -->
       <div class="input-container">
-        <input type="number" id="input-otp" placeholder=" " />
+        <input name="OTP" type="number" placeholder=" " />
         <p>OTP Authentication</p>
       </div>
 
       <button id="otp-label">Get OTP</button>
-
       <button id="token-submit">SEND TOKENS</button>
     </form>
     <div id="error-msg-container"></div>
