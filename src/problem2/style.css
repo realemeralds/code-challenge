@@ -45,7 +45,7 @@ body form {
   align-items: center;
   justify-content: center;
   background-color: #fff;
-  height: 460px;
+  height: 440px;
   width: 460px;
   padding: 30px;
   border-radius: 50px;
@@ -63,7 +63,7 @@ body form .form-subtitle {
 }
 body form .form-separator {
   width: 100%;
-  margin: 12px 0 30px;
+  margin: 12px 0 6px;
   border-top: 2px solid rgba(34, 34, 34, 0.36);
 }
 body form label {
@@ -72,6 +72,7 @@ body form label {
 body form .input-container {
   width: 100%;
   position: relative;
+  margin-top: 18px;
 }
 body form .input-container input {
   width: 100%;
@@ -80,12 +81,13 @@ body form .input-container input {
   border: 1px solid #c3d2eb;
   border-radius: 12px;
   background-color: #fdfdff;
-  color: #8b8787;
+  transition: all 0.5s ease-in-out;
+  color: #000;
   font-family: "SF Pro Display";
   font-size: 18px;
 }
-body form .input-container input::focus {
-  border-color: #5138ed;
+body form .input-container input:focus {
+  border: 1px solid #5138ed;
   font-size: 20px;
 }
 body form .input-container input::-webkit-outer-spin-button,
@@ -100,20 +102,45 @@ body form .input-container p {
   left: 0;
   transform: translateY(-50%);
   transition: all 0.3s ease-out;
-  color: #8b8787;
+  color: #bfb7b7;
   font-family: "SF Pro Display";
   font-size: 18px;
   pointer-events: none;
 }
-body form .input-container input:focus + p {
-  top: -2.3px;
+body form .input-container input:not(:-moz-placeholder-shown) + p {
+  top: -2px;
   left: 16px;
-  padding: 0 4px;
+  padding: 0 2px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+}
+body form .input-container input:not(:-ms-input-placeholder) + p {
+  top: -2px;
+  left: 16px;
+  padding: 0 2px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+}
+body form .input-container input:not(:placeholder-shown) + p {
+  top: -2px;
+  left: 16px;
+  padding: 0 2px;
+  background-color: #fff;
+  color: #000;
+  font-size: 14px;
+}
+body form .input-container input:focus + p {
+  top: -2px;
+  left: 16px;
+  padding: 0 2px;
+  border-color: #5138ed;
   background-color: #fff;
   color: #3521b5;
   font-size: 14px;
 }
-body .otp-label {
+body #otp-label {
   align-self: flex-end;
   margin-top: 8px;
   background-color: #fff;
@@ -121,8 +148,9 @@ body .otp-label {
   text-decoration: underline;
   text-underline-offset: 2px;
 }
-body .token-submit {
-  padding: 10px 15px;
+body #token-submit {
+  padding: 12px 17px;
+  margin-top: 12px;
   border-radius: 10px;
   background-color: #5138ed;
   color: #fff;

@@ -30,12 +30,13 @@ $md: 20px;
 $lg: 36px;
 
 // Colours
-$dull: #8b8787;
+$dull: #bfb7b7;
 $inactive-border: #c3d2eb;
-$inactive-background: #fdfdff; // Clearing Defaults
+$inactive-background: #fdfdff;
 $active-header: #3521b5;
 $active-border: #5138ed;
 
+// Clearing Defaults
 * {
   box-sizing: border-box;
   margin: 0;
@@ -66,7 +67,7 @@ body {
     justify-content: center;
 
     background-color: #fff;
-    height: 460px;
+    height: 440px;
     width: 460px;
     padding: 30px;
     border-radius: 50px;
@@ -87,7 +88,7 @@ body {
 
     .form-separator {
       width: 100%;
-      margin: 12px 0 30px;
+      margin: 12px 0 6px;
       border-top: 2px solid rgba(34, 34, 34, 0.36);
     }
 
@@ -98,6 +99,7 @@ body {
     .input-container {
       width: 100%;
       position: relative;
+      margin-top: 18px;
 
       input {
         width: 100%;
@@ -107,13 +109,15 @@ body {
         border-radius: 12px;
         background-color: $inactive-background;
 
-        color: $dull;
+        transition: all 0.5s ease-in-out;
+
+        color: #000;
         font-family: "SF Pro Display";
         font-size: $sm;
       }
 
-      input::focus {
-        border-color: $active-border;
+      input:focus {
+        border: 1px solid $active-border;
         font-size: $md;
       }
 
@@ -140,10 +144,22 @@ body {
         pointer-events: none;
       }
 
-      input:focus + p {
-        top: -2.3px;
+      input:not(:placeholder-shown) + p {
+        top: -2px;
         left: 16px;
-        padding: 0 4px;
+        padding: 0 2px;
+
+        background-color: #fff;
+        color: #000;
+        font-size: $xsm;
+      }
+
+      input:focus + p {
+        top: -2px;
+        left: 16px;
+        padding: 0 2px;
+
+        border-color: $active-border;
 
         background-color: #fff;
         color: $active-header;
@@ -152,7 +168,7 @@ body {
     }
   }
 
-  .otp-label {
+  #otp-label {
     align-self: flex-end;
     margin-top: 8px;
 
@@ -162,8 +178,9 @@ body {
     text-underline-offset: 2px;
   }
 
-  .token-submit {
-    padding: 10px 15px;
+  #token-submit {
+    padding: 12px 17px;
+    margin-top: 12px;
     border-radius: 10px;
 
     background-color: $active-border;
