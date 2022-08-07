@@ -20,11 +20,19 @@ interface BigNumber {
   _isBigNumber: boolean;
 }
 
+function parseAndFormatInt(hexNo: string, base: number): string {
+  const parsedNumber = parseInt(hexNo, base) * 1e-8;
+  return parsedNumber.toLocaleString(undefined, {
+    minimumFractionDigits: 8,
+    maximumFractionDigits: 8,
+  });
+}
+
 const main = async () => {
   for (const wallet of wallets) {
     try {
       const accountBalance: BigNumber = await swthContract.balanceOf(wallet);
-      const parsedAccountBalance: number = parseInt(accountBalance._hex, 16);
+      const parsedAccountBalance: string = parseAndFormatInt(accountBalance._hex, 16);
       console.log(`${wallet} ${parsedAccountBalance}`);
     } catch (err) {
       console.log(err);
