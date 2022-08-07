@@ -6,7 +6,7 @@ const errorContainer = document.querySelector("#error-msg-container");
 let clientOTP;
 
 const validateAddress = (address) => {
-  if (!/[0-9a-f]{40}$/i.test(address)) {
+  if (!/!^(0x)?[0-9a-f]{40}$/i.test(address)) {
     displayError("Please key in a valid ETH address.");
     return false;
   }
